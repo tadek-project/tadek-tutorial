@@ -1,0 +1,146 @@
+################################################################################
+##                                                                            ##
+## This file is a part of TADEK.                                              ##
+##                                                                            ##
+## TADEK - Test Automation in a Distributed Environment                       ##
+## (http://tadek.comarch.com)                                                 ##
+##                                                                            ##
+## Copyright (C) 2011 Comarch S.A.                                            ##
+## All rights reserved.                                                       ##
+##                                                                            ##
+## TADEK is free software for non-commercial purposes. For commercial ones    ##
+## we offer a commercial license. Please check http://tadek.comarch.com for   ##
+## details or write to tadek-licenses@comarch.com                             ##
+##                                                                            ##
+## You can redistribute it and/or modify it under the terms of the            ##
+## GNU General Public License as published by the Free Software Foundation,   ##
+## either version 3 of the License, or (at your option) any later version.    ##
+##                                                                            ##
+## TADEK is distributed in the hope that it will be useful,                   ##
+## but WITHOUT ANY WARRANTY; without even the implied warranty of             ##
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the              ##
+## GNU General Public License for more details.                               ##
+##                                                                            ##
+## You should have received a copy of the GNU General Public License          ##
+## along with TADEK bundled with this file in the file LICENSE.               ##
+## If not, see http://www.gnu.org/licenses/.                                  ##
+##                                                                            ##
+## Please notice that Contributor Agreement applies to any contribution       ##
+## you make to TADEK. The Agreement must be completed, signed and sent        ##
+## to Comarch before any contribution is made. You should have received       ##
+## a copy of Contribution Agreement along with TADEK bundled with this file   ##
+## in the file CONTRIBUTION_AGREEMENT.pdf or see http://tadek.comarch.com     ##
+## or write to tadek-licenses@comarch.com                                     ##
+##                                                                            ##
+################################################################################
+
+msgid ""
+msgstr ""
+"Project-Id-Version: tadek\n"
+"POT-Creation-Date: 2011-07-27 14:38+0200\n"
+"PO-Revision-Date: 2011-07-27 14:38+0200\n"
+"Last-Translator: Krzysztof Włodarczyk\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: models/tomboy.py:36 models/tomboy.py:134
+msgid "Delete"
+msgstr "Usuń"
+
+#: models/tomboy.py:85 models/tomboy.py:88
+msgid "Search All Notes"
+msgstr "Przeszukiwanie notatek"
+
+#: models/tomboy.py:90
+msgid "File"
+msgstr "Plik"
+
+#: models/tomboy.py:91
+msgid "New"
+msgstr "Nowa"
+
+#: models/tomboy.py:92 models/tomboy.py:109
+msgid "Notebooks"
+msgstr "Notatniki"
+
+#: models/tomboy.py:94
+msgid "New Notebook..."
+msgstr "Nowy notatnik..."
+
+#: models/tomboy.py:95
+msgid "Open..."
+msgstr "Otwórz..."
+
+#: models/tomboy.py:96 models/tomboy.py:124
+msgid "Close"
+msgstr "Zamknij"
+
+#: models/tomboy.py:97
+msgid "Quit"
+msgstr "Zakończ"
+
+#: models/tomboy.py:98
+msgid "Edit"
+msgstr "Edycja"
+
+#: models/tomboy.py:100
+msgid "Preferences"
+msgstr "Preferencje"
+
+#: models/tomboy.py:105
+msgid "Note"
+msgstr "Notatka"
+
+#: models/tomboy.py:123
+msgid "Tomboy Preferences"
+msgstr "Preferencje programu Tomboy"
+
+#: models/tomboy.py:126
+msgid "Editing"
+msgstr "Modyfikowanie"
+
+#: models/tomboy.py:128
+msgid "Open New Note Template"
+msgstr "Otwórz wzorzec nowej notatki"
+
+#: models/tomboy.py:129
+msgid "Hotkeys"
+msgstr "Klawisze skrótów"
+
+#: models/tomboy.py:133
+msgid "Question"
+msgstr "Pytanie"
+
+#: models/tomboy.py:135 models/tomboy.py:143
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: models/tomboy.py:139
+msgid "Create a new notebook"
+msgstr "Nowy notatnik"
+
+#: models/tomboy.py:142
+msgid "Create"
+msgstr "Utwórz"
+
+# teststeps/tomboy/basic.py:136
+msgid "New Note Template"
+msgstr "Wzorzec nowej notatki"
+
+# testsuites/tomboy/basic.py:34
+msgid "New Note"
+msgstr "Nowa notatka"
+
+# teststeps/tomboy/basic.py:179
+msgid "Total"
+msgstr "Razem"
+
+# testsuites/tomboy/basic.py:79 testsuites/tomboy/basic.py:81
+msgid "All Notes"
+msgstr "Wszystkie notatki"
+
+# testsuites/tomboy/basic.py:79 testsuites/tomboy/basic.py:81
+msgid "Unfiled Notes"
+msgstr "Notatki bez kategorii"

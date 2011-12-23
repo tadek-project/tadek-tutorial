@@ -1,0 +1,135 @@
+Internationalization
+********************
+
+The term of internationalization and localization is an integral part of
+application development process. For that reason, TADEK comes with the
+:epylink:`tadek.core.locale` module, which provides simple support for
+internationalization purpose. The translation machinery is based on `GNU gettext
+<http://www.gnu.org/software/gettext>`_ via the `standard gettext module
+<http://docs.python.org/library/gettext.html>`_ that comes with Python.
+This chapter assumes that the reader have some knowledge of the
+internationalization issues.
+
+The :epylink:`tadek.core.locale` module defines two kinds of *gettext()*
+functions:
+
+* :epylink:`~tadek.core.locale.gettext` and :epylink:`~tadek.core.locale.ngettext` -- for  standard (instant) translations,
+* :epylink:`~tadek.core.locale.gettext__` and :epylink:`~tadek.core.locale.ngettext__` -- for lazy translations.
+
+Standard Translation
+====================
+
+The TADEK's :epylink:`~tadek.core.locale.gettext` and
+:epylink:`~tadek.core.locale.ngettext` functions for standard translation have
+two goals:
+
+* Marking translatable strings in the code,
+* Translating provided strings according to a locale of a given device in the run time.
+
+Because these functions translate specified strings in the run time, they require
+the additional *device* argument to determine a target language of a translated
+message. That in fact limits usability of the ``gettext()`` standard functions to
+test steps, ``setUp()`` and ``tearDown()`` functions.
+
+This example shows a typical use of the :epylink:`~tadek.core.locale.gettext`
+function in the test step function:
+
+.. code-block:: python
+    :linenos:
+
+    from tadek.engine.testdefs import testStep
+    from tadek.models.gcalctool import Calculator
+    from tadek.core.locale import gettext as _
+
+    app = Calculator()
+
+    @testStep(description="Calculate a malformed expression")
+    def stepCalculateMalformedExpression(test, device):
+        test.fail(app.buttons.Calculate.click(device), "Could not calculate result")
+        test.fail(app.display.status.hasText(device,
+                                             _("Malformed expression", device)),
+                  "Incorrect status displayed")
+
+It is convention to use ``gettext()`` functions via the ``'_'`` alias to save
+typing (see line 3). In the line 11 the :epylink:`~tadek.core.locale.gettext`
+function is called with a message to translate and the ``device`` instance
+provided to the test step function.
+
+Lazy Translation
+================
+
+Sometimes there is a need to only mark strings for translations but not to
+translate the strings immediately when the code is executed. To meet this
+requirement TADEK comes with functions for lazy translations.
+The :epylink:`~tadek.core.locale.gettext__` and
+:epylink:`~tadek.core.locale.ngettext__` functions mark only specified strings
+for future translation, when a target device could be provided for finalizing
+the translation.
+
+An ideal place where lazy translation machinery can be used is a model
+definition, see the example below:
+
+.. code-block:: python
+    :linenos:
+
+    from tadek.engine.searchers import *
+    from tadek.engine.widgets import *
+    from tadek.models import Model
+    from tadek.core.locale import gettext__ as _
+
+    class Calculator(Model):
+        root = App("gcalctool", searcher("AT-SPI"), application("gcalctool"))
+        root.define("view", Widget())
+        root.define("view.Basic", Widget(frame(_("Calculator"))))
+        root.define("view.Advanced",
+                    Widget(frame(_("Calculator") + " —" + _(" Advanced"))))
+        root.define("view.Financial",
+                    Widget(frame(_("Calculator") + " —" + _(" Financial"))))
+        root.define("view.Scientific",
+                    Widget(frame(_("Calculator") + " —" + _(" Scientific"))))
+        root.define("view.Programming",
+                    Widget(frame(_("Calculator") + " —" + _(" Programming"))))
+
+In the line 4, again for convenience, the :epylink:`~tadek.core.locale.gettext__`
+function is imported as ``'_'``. The function via the ``'_'`` alias is used in
+lines: 9-17. The interesting thing in this example is that functions for lazy
+translations do not require the ``device`` argument and lazy translated strings
+can be concatenated (glued together) with both ordinary strings and other
+lazy translated strings.
+
+Creating Language Files
+=======================
+
+Once when all strings are tagged for future translation, the language
+translations need to be written themselves. TADEK does not provide any tool to
+support generating *.po* files and next compiling them to machine-readable *.mo*
+binary files. But this is not a problem, since there are external tools, which
+can be used for these purposes.
+
+TADEK's translation machinery works properly if all language files, especially
+the machine-readable *.mo* files, are placed in the *locale*
+:ref:`location <running_locations>` subdirectory and the root parts of
+their names (the domain) should be *'tadek'*, e.g. *tadek.po* or *tadek.mo*.
+
+A message file (*.po*) for some language containing tagged strings in specified
+Python modules can be generated using the `GNU xgettext
+<http://www.gnu.org/s/hello/manual/gettext/xgettext-Invocation.html#xgettext-Invocation>`_
+program, e.g.::
+
+    $ xgettext --language=Python --output=locale/pl/LC_MESSAGES/tadek.po \
+               models/gcalctool.py teststeps/gcalctool/calculation.py
+
+The generated *tadek.po* file has to be edited to supply a value of ``msgstr``
+translation string for each corresponfing ``msgid`` string, e.g.::
+
+    #: models/gcalctool.py:55 models/gcalctool.py:58
+    msgid "Advanced"
+    msgstr "zaawansowany"
+
+After that all messages in the generated *tadek.po* file are translated,
+the binary *tadek.mo* can be built with the `GNU msgfmt
+<http://www.gnu.org/s/hello/manual/gettext/msgfmt-Invocation.html#msgfmt-Invocation>`_
+program, in the following way::
+
+    $ msgfmt --output-file=locale/pl/LC_MESSAGES/tadek.mo \
+             locale/pl/LC_MESSAGES/tadek.po

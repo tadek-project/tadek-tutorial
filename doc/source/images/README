@@ -1,0 +1,18 @@
+Icons taken from oxygen-icon-theme (LGPL)
+http://changelogs.ubuntu.com/changelogs/pool/main/o/oxygen-icons/oxygen-icons_4.5.1-0ubuntu1/oxygen-icon-theme.copyright
+----------------------------------------------
+test/source_moc.png
+result/text-x-python.png
+
+
+icons taken from nuvola-icon-theme (LGPL)
+http://changelogs.ubuntu.com/changelogs/pool/main/k/kdeartwork/kdeartwork_4.5.1-0ubuntu1/nuvola-icon-theme.copyright
+----------------------------------------------
+test/folder-grey.png
+test/inode-blockdevice.png
+test/text-x-python.png
+result/application-x-zip.png
+result/folder-grey.png
+result/inode-blockdevice.png
+result/source_moc.png
+

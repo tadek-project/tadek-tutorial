@@ -1,0 +1,1 @@
+To compile HTML documentation install python-sphinx and run 'make html' on linux or 'make.bat html' on windows. The output HTML will be saved to build/html diretory.
