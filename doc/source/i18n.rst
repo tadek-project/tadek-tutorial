@@ -120,7 +120,7 @@ program, e.g.::
                models/gcalctool.py teststeps/gcalctool/calculation.py
 
 The generated *tadek.po* file has to be edited to supply a value of ``msgstr``
-translation string for each corresponfing ``msgid`` string, e.g.::
+translation string for each corresponding ``msgid`` string, e.g.::
 
     #: models/gcalctool.py:55 models/gcalctool.py:58
     msgid "Advanced"
