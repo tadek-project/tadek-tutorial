@@ -342,7 +342,7 @@ Accessible Requests
 
     Sets object text content.
 
-.. cmdoption:: --textfile=FILE
+.. cmdoption:: --set-text-file=FILE
 
     Sets object text content from given file.
 
@@ -358,7 +358,7 @@ Accessible Requests
 Mouse Event Requests
 ++++++++++++++++++++
 
-Following options can be used to generate mouse events. All events require coordinates. Options *--mouse-click*, *--mouse-double-click*, *--mouse-press* and *--mouse-release* require the option *--button*. Options *--mouse-absolute* and *--mouse-relative* forbid the option *--button*.
+Following options can be used to generate mouse events. All events require coordinates. Options *--mouse-click*, *--mouse-double-click*, *--mouse-press* and *--mouse-release* require the option *--button*. Options *--mouse-absolute-motion* and *--mouse-relative-motion* forbid the option *--button*.
 
 .. cmdoption:: --mouse-click=X Y
 
@@ -376,11 +376,11 @@ Following options can be used to generate mouse events. All events require coord
 
     Executes mouse *RELEASE* request on given integer coordinates.
 
-.. cmdoption:: --mouse-absolute=X Y
+.. cmdoption:: --mouse-absolute-motion=X Y
 
     Moves mouse cursor to given integer coordinates.
 
-.. cmdoption:: --mouse-relative=X Y
+.. cmdoption:: --mouse-relative-motion=X Y
 
     Moves mouse cursor by given vector.
 
@@ -407,25 +407,26 @@ Examples
 Connecting to the local machine on port 8089 and showing all elements with
 their children starting from element given in path as tree root::
 
-    $ tadek-explorer --path=/0/2/0/0/1/1/0 --device=127.0.0.1:8089 --dump-all
-    Got response from 127.0.0.1:8089
-    --------------------------------------------------------------------------------
-    INDEX             |NAME    |ROLE      |CHILDREN
-    /0/2/0/0/1/1/0    |        |FILLER    |       1
-    /0/2/0/0/1/1/0/0  |        |FILLER    |       2
-    /0/2/0/0/1/1/0/0/0|Terminal|UNKNOWN   |       0
-    /0/2/0/0/1/1/0/0/1|        |SCROLL_BAR|       0
+    $ tadek-explorer --path=/0/11/3/0/0/0/2 --device=127.0.0.1:8089 --dump-all
+    ---------------------------------------------------
+           PATH      |     NAME     |   ROLE  |CHILDREN
+    ---------------------------------------------------
+    /0/11/3/0/0/0/2  |Open Terminal |MENU     |4       
+    /0/11/3/0/0/0/2/0|              |UNKNOWN  |0       
+    /0/11/3/0/0/0/2/1|0. Default    |MENU_ITEM|0       
+    /0/11/3/0/0/0/2/2|1. transparent|MENU_ITEM|0       
+    /0/11/3/0/0/0/2/3|Empty         |MENU_ITEM|0       
 
 Connecting to the local (default) device and showing all elements with their
 children. It is a full dump (output was truncated to fit here)::
 
     $ tadek-explorer -p / --dump-all
-    Got response from 127.0.0.1:8089
-    --------------------------------------------------------------------------------
-    INDEX             |NAME         |ROLE         |CHILDREN
-    /0                |AT-SPI       |             |      15
-    /0/0              |wnck-applet  |APPLICATION  |       1
-    /0/0/0            |             |WINDOW       |       0
+    -------------------------------------------------------
+           PATH       |     NAME    |   ROLE      |CHILDREN
+    -------------------------------------------------------
+    /0                |AT-SPI       |             |18      
+    /0/0              |wnck-applet  |APPLICATION  |1       
+    /0/0/0            |             |WINDOW       |0       
     
     ...
 
@@ -433,61 +434,60 @@ Connecting to device *testdevice* given in the configuration file and showing
 first accessibility element with applications as its children::
 
     $ tadek-explorer -d testdevice --path /0 --dump 1
-    Got response from 127.0.0.1:8089
-    --------------------------------------------------------------------------------
-    INDEX|NAME                    |ROLE       |CHILDREN
-    /0   |AT-SPI                  |           |      15
-    /0/0 |wnck-applet             |APPLICATION|       1
-    /0/1 |gnome-panel             |APPLICATION|       3
-    /0/2 |gnome-terminal          |APPLICATION|       1
-    /0/3 |                        |APPLICATION|       2
-    /0/4 |clock-applet            |APPLICATION|       0
-    /0/5 |gnome-screensaver       |APPLICATION|       0
-    /0/6 |metacity                |APPLICATION|       0
-    /0/7 |indicator-applet-session|APPLICATION|       0
-    /0/8 |nm-applet               |APPLICATION|       0
-    /0/9 |notify-osd              |APPLICATION|       0
-    /0/10|trashapplet             |APPLICATION|       0
-    /0/11|gedit                   |APPLICATION|       1
-    /0/12|Firefox                 |APPLICATION|       1
-    /0/13|notification-area-applet|APPLICATION|       0
-    /0/14|nautilus                |APPLICATION|       2
+    --------------------------------------------------------------
+     PATH|                NAME               |    ROLE   |CHILDREN
+    --------------------------------------------------------------
+    /0   |AT-SPI                             |           |18      
+    /0/0 |gnome-session                      |APPLICATION|0       
+    /0/1 |gnome-power-manager                |APPLICATION|0       
+    /0/2 |metacity                           |APPLICATION|0       
+    /0/3 |polkit-gnome-authentication-agent-1|APPLICATION|0       
+    /0/4 |nm-applet                          |APPLICATION|0       
+    /0/5 |gnome-settings-daemon              |APPLICATION|0       
+    /0/6 |gnome-panel                        |APPLICATION|2       
+    /0/7 |vmware-user                        |APPLICATION|0       
+    /0/8 |gnome-screensaver                  |APPLICATION|0       
+    /0/9 |gdu-notification-daemon            |APPLICATION|0       
+    /0/10|wnck-applet                        |APPLICATION|1       
+    /0/11|gnome-terminal                     |APPLICATION|4       
+    /0/12|nautilus                           |APPLICATION|1       
+    /0/13|notify-osd                         |APPLICATION|0       
+    /0/14|nautilus-connect-server            |APPLICATION|1       
+    /0/15|gedit                              |APPLICATION|2       
+    /0/16|Firefox                            |APPLICATION|1       
 
 Connecting to the local (default) device and showing size of a widget::
 
-    $ tadek-explorer -p /0/11/0/0/0/3 --size
-    Got response from 127.0.0.1:8089
+    $ tadek-explorer -p /0/6/1/0/0/0/0 --size
     --------------------------------------------------------------------------------
-    NAME: Search
-    ROLE: MENU
-    CHILDREN COUNT: 32
-    PATH: /0/11/0/0/0/3
-    SIZE: (59, 23)
+    PATH: /0/6/1/0/0/0/0
+    NAME: 
+    ROLE: MENU_BAR
+    CHILDREN: 3
+
+    SIZE: (236, 24)
 
 Connecting to the local (default) device and inserting content of *text.txt* to
 element given in path::
 
-    $ tadek-explorer --textfile=text.txt --path /0/11/0/0/2/1/0/10/0/0/0
-    Got response from 127.0.0.1:8089
+    $ tadek-explorer --set-text-file=text.txt --path /0/15/1/0/2/1/0/3/0/0/0
     --------------------------------------------------------------------------------
-    Request success.
+    SUCCESS
 
 Connecting to the local (default) device and executing an action ``click`` on
 element given in path. It should work if element is for example button::
 
-    $ tadek-explorer --action click --path /0/9/0/0/0/0/1
-    Got response from 127.0.0.1:8089
+    $ tadek-explorer --action click --path /0/15/0/0/0/0/1
     --------------------------------------------------------------------------------
-    Request success.
+    SUCCESS
 
 Connecting to the local (default) device and executing left mouse button click
 in screen coordinates ``(10, 15)`` on accessibility given in *--path*
 argument::
 
     $ tadek-explorer --mouse-click 10 15 --button=LEFT --path /0
-    Got response from 127.0.0.1:8089
     --------------------------------------------------------------------------------
-    Request success.
+    SUCCESS
 
 Widgets -- Representing UI Elements
 ===================================
