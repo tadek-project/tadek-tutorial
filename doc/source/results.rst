@@ -82,7 +82,7 @@ The XML channel produces an XML document containing all available details on
 test execution with preserved hierarchy of test steps/cases/suites.
 
 Providing the channel is enabled, the output file is created in the directory
-from where tadek-ui or tadek are launched. By default, the file is named
+from where tadek-ui or tadek-runner are launched. By default, the file is named
 *tadek_results_YYYYMMDD_HHMMSS.xml* where *YYYYMMDD_HHMMSS* represent
 date and time of creation of the file. This guarantees that the file name is
 unique. Name and uniqueness of the file as well as the verbosity of the channel

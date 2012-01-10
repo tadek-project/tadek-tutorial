@@ -100,14 +100,14 @@ It informs about:
 
 *Run again* button starts the execution anew and *Show details* button switches to Result view and shows a detailed report.
 
-tadek Command-Line Tool
-=======================
+tadek-runner Command-Line Tool
+==============================
 
-tadek is a tool for execution of test cases written with TADEK. Tests cases can be executed locally or remotely on specified devices.
+tadek-runner is a tool for execution of test cases written with TADEK. Tests cases can be executed locally or remotely on specified devices.
 
 Usage::
 
-    tadek [OPTION]... [TESTPATH]...
+    tadek-runner [OPTION]... [TESTPATH]...
 
 The *TESTPATH* argument specifies a logical path to a test case or a test suite. It can be provided more than once. If the location is set to e.g. */home/user/tests/myapp*, then:
 
@@ -120,7 +120,7 @@ If no *TESTPATH* arguments are provided, all test suites from specified location
 Options
 -------
 
-.. program:: tadek
+.. program:: tadek-runner
 
 .. cmdoption:: --version
 
@@ -143,7 +143,7 @@ Examples
 
 Running all test cases from ``examples/gucharmap`` location on default device (output was truncated to fit here)::
 
-    $ tadek -l examples/gucharmap
+    $ tadek-runner -l examples/gucharmap
       Loaded 8 tests from BasicTestsSuite
       Loaded 7 tests from ExtraTestsSuite
       Loaded 4 tests from CopyPasteTestsSuite
@@ -177,7 +177,7 @@ Running all test cases from ``examples/gucharmap`` location on default device (o
 
 Running ``caseAddNote`` test case from ``tomboy.basic.BasicSuite`` placed in ``examples/tomboy`` location::
 
-    $ tadek -l examples/tomboy -d testdevice tomboy.basic.BasicSuite.caseAddNote
+    $ tadek-runner -l examples/tomboy -d testdevice tomboy.basic.BasicSuite.caseAddNote
       Loaded 1 tests from BasicSuite
     ----------------------------- LOADED 1 TEST CASES ------------------------------
 

@@ -11,7 +11,7 @@ Configuration spreads on multiple files of *INI* format and is split in two
 categories:
 
 * *common* -- configuration files that are used by all the tools of the framework
-* Specific to a program -- configuration files that are defined exclusively for one tool: *tadek-ui*, *tadek*, *tadek-explorer*
+* Specific to a program -- configuration files that are defined exclusively for one tool: *tadek-ui*, *tadek-runner*, *tadek-explorer*
 
 .. note::
     Some configuration files store internal settings that are maintained
@@ -88,11 +88,11 @@ Disabling the Console channel::
 
     $ tadek-conf -s channels console enabled No
 
-Setting a custom port of tadek daemon::
+Setting a custom port of the TADEK daemon::
 
     $ tadek-conf -p tadekd -s daemon connection port 5544
 
-Restoring the default port of tadek daemon::
+Restoring the default port of the TADEK daemon::
 
     $ tadek-conf -p tadekd --reset daemon connection port
 

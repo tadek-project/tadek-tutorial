@@ -56,8 +56,8 @@ in system preferences, e.g. in the GNOME desktop:
 Running tadekd
 ==============
 
-tadekd is a daemon program that offers services for client-like TADEK tools:
-tadek, tadek-explorer and tadek-ui. The tadekd daemon is intended for
+tadekd is a daemon program that offers services for client-like TADEK programs:
+tadek-runner, tadek-explorer and tadek-ui. The tadekd daemon is intended for
 executing operations requested by clients in a host system. The IP address and
 TCP port on which tadekd will listen for client requests can be specified in
 the configuration file (default or provided one). The default location is
@@ -189,9 +189,9 @@ another device.
 tadek-conf tool
 ---------------
 
-Devices configured in tadek-ui can also be used with tadek and tadek-explorer
-command line tools, however, if tadek-ui is not installed, devices can be
-set with tadek-conf. More information can be found in the
+Devices configured in tadek-ui can also be used with tadek-runner and
+tadek-explorer command line tools, however, if tadek-ui is not installed,
+devices can be set with tadek-conf. More information can be found in the
 :ref:`configuration_tadek-conf` section. Following command adds a device named
 *device1* with address *192.168.1.25* and port 8089::
 
