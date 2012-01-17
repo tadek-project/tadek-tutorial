@@ -144,53 +144,54 @@ Examples
 Running all test cases from ``examples/gucharmap`` location on default device (output was truncated to fit here)::
 
     $ tadek-runner -l examples/gucharmap
-      Loaded 8 tests from BasicTestsSuite
-      Loaded 7 tests from ExtraTestsSuite
-      Loaded 4 tests from CopyPasteTestsSuite
     ----------------------------- LOADED 19 TEST CASES -----------------------------
 
-    START->	[localhost] gucharmap.basic.BasicTestsSuite.caseEnterDigits
-    STOP ->	[localhost] gucharmap.basic.BasicTestsSuite.caseEnterDigits: PASSED
-    START->	[localhost] gucharmap.basic.BasicTestsSuite.caseEnterLetters1
-    STOP ->	[localhost] gucharmap.basic.BasicTestsSuite.caseEnterLetters1: PASSED
-    START->	[localhost] gucharmap.basic.BasicTestsSuite.caseEnterLetters2
-    STOP ->	[localhost] gucharmap.basic.BasicTestsSuite.caseEnterLetters2: PASSED
-    START->	[localhost] gucharmap.basic.BasicTestsSuite.caseEnterLetters3
-    STOP ->	[localhost] gucharmap.basic.BasicTestsSuite.caseEnterLetters3: PASSED
-    START->	[localhost] gucharmap.basic.BasicTestsSuite.caseEnterLettersDigits
-    STOP ->	[localhost] gucharmap.basic.BasicTestsSuite.caseEnterLettersDigits: PASSED
-    START->	[localhost] gucharmap.basic.BasicTestsSuite.caseRunClose
-    STOP ->	[localhost] gucharmap.basic.BasicTestsSuite.caseRunClose: PASSED
-    
+    12:42:30 [localhost] START gucharmap.basic.BasicTestsSuite
+    12:42:30 [localhost] START gucharmap.basic.BasicTestsSuite.caseEnterDigits
+    12:42:30 [localhost] START gucharmap.basic.BasicTestsSuite.caseEnterDigits.step1
+    12:42:33 [localhost] STOP  gucharmap.basic.BasicTestsSuite.caseEnterDigits.step1 [Passed]
+    12:42:33 [localhost] START gucharmap.basic.BasicTestsSuite.caseEnterDigits.step2
+    12:42:34 [localhost] STOP  gucharmap.basic.BasicTestsSuite.caseEnterDigits.step2 [Passed]
+    12:42:34 [localhost] START gucharmap.basic.BasicTestsSuite.caseEnterDigits.step3
+    12:42:47 [localhost] STOP  gucharmap.basic.BasicTestsSuite.caseEnterDigits.step3 [Passed]
+    12:42:47 [localhost] STOP  gucharmap.basic.BasicTestsSuite.caseEnterDigits [Passed]
+    12:42:47 [localhost] START gucharmap.basic.BasicTestsSuite.caseEnterLetters1
+    12:42:47 [localhost] START gucharmap.basic.BasicTestsSuite.caseEnterLetters1.step1
+    12:42:50 [localhost] STOP  gucharmap.basic.BasicTestsSuite.caseEnterLetters1.step1 [Passed]
+    12:42:50 [localhost] START gucharmap.basic.BasicTestsSuite.caseEnterLetters1.step2
+    12:42:52 [localhost] STOP  gucharmap.basic.BasicTestsSuite.caseEnterLetters1.step2 [Passed]
+
     ...
 
-    Ran 19 of 19 test cases.
-    Run time:	10m 3s
-    Passed:		18
-    Failed:		1
-    Not completed:	0
-    Errors:		0
-    --------------------------------------------------------------------------------
+    Ran 19 of 19 test cases in 4m 20.52s
+    ------------------------------------
+    Tests passed:		17
+    Tests failed:		2
     Result file:
-        /home/user/tadek_results_20110606_094733.xml
+	    /home/user/tadek_results_20120117_124230.xml
     --------------------------------------------------------------------------------
+    FAILURE
 
 Running ``caseAddNote`` test case from ``tomboy.basic.BasicSuite`` placed in ``examples/tomboy`` location::
 
     $ tadek-runner -l examples/tomboy -d testdevice tomboy.basic.BasicSuite.caseAddNote
-      Loaded 1 tests from BasicSuite
     ----------------------------- LOADED 1 TEST CASES ------------------------------
 
-    START->	[testdevice] tomboy.basic.BasicSuite.caseAddNote
-    STOP ->	[testdevice] tomboy.basic.BasicSuite.caseAddNote: PASSED
+    12:53:52 [testdevice] START tomboy.basic.BasicSuite
+    12:53:53 [testdevice] START tomboy.basic.BasicSuite.caseAddNote
+    12:54:02 [testdevice] START tomboy.basic.BasicSuite.caseAddNote.step1
+    12:54:05 [testdevice] STOP  tomboy.basic.BasicSuite.caseAddNote.step1 [Passed]
+    12:54:05 [testdevice] START tomboy.basic.BasicSuite.caseAddNote.step2
+    12:54:08 [testdevice] STOP  tomboy.basic.BasicSuite.caseAddNote.step2 [Passed]
+    12:54:08 [testdevice] START tomboy.basic.BasicSuite.caseAddNote.step3
+    12:54:09 [testdevice] STOP  tomboy.basic.BasicSuite.caseAddNote.step3 [Passed]
+    12:54:11 [testdevice] STOP  tomboy.basic.BasicSuite.caseAddNote [Passed]
+    12:54:11 [testdevice] STOP  tomboy.basic.BasicSuite [Passed]
 
-    Ran 1 of 1 test cases.
-    Run time:	17s
-    Passed:		1
-    Failed:		0
-    Not completed:	0
-    Errors:		0
-    --------------------------------------------------------------------------------
+    Ran 1 of 1 test cases in 18.74s
+    -------------------------------
+    Tests passed:		1
     Result file:
-        /home/user/tadek_results_20110606_093701.xml
+	    /home/user/tadek_results_20120117_125352.xml
     --------------------------------------------------------------------------------
+    SUCCESS
